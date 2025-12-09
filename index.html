@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Aim Trainer</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="script.js" defer></script>
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+<h1 id="title">AIM TRAINER</h1>
+
+<div id="modal">
+    <button id="info-btn" class="info-btn" title="Info">info</button>
+    <h2>Game Mode</h2>
+    <button class="game-mode" id="robot-flick">Flick</button>
+    <button class="game-mode" id="robot-attack">Pulse</button>
+    <button class="game-mode" id="triple-attack">Trio</button>
+
+    <h2>Difficulty</h2>
+    <button class="difficulty" id="easy">Easy</button>
+    <button class="difficulty" id="medium">Medium</button>
+    <button class="difficulty" id="hard">Hard</button>
+
+    <div>
+        <button id="start-btn">Start</button>
+    </div>
+</div>
+<div id="hud" style="display:none; position:fixed; top:10px; left:50%; transform:translateX(-50%); color:#fff;
+                    background:rgba(0,0,0,0.35); padding:6px 12px; border-radius:6px; font-family:Arial,Helvetica,sans-serif; z-index:99999;">
+    <span id="hud-left">Left: 0</span>
+    <span id="hud-acc" style="margin-left:14px">Accuracy: 0.0%</span>
+</div>
+<div id="result-modal">
+    <h2>Results</h2>
+    <div id="result-text"></div>
+    <button id="result-ok">OK</button>
+</div>
+    <div id="loss-modal" style="display:none; position: fixed; top:50%; left:50%; transform:translate(-50%,-50%); background:#2B2B2B; padding:18px;
+                        border:2px solid #00EEFF; border-radius:10px; color:#fff; z-index:10000; text-align:center; box-shadow: 0 0 20px rgba(0, 238, 255, 0.3);">
+    <h2>Game Over</h2>
+    <div id="loss-text">Too many robots appeared. Try again.</div>
+    <div style="margin-top:12px"><button id="loss-ok" style="padding:8px 16px;border-radius:6px;border:2px solid #00EEFF;background:rgba(0, 238, 255, 0.1);
+                                                                color:#00EEFF;cursor:pointer;font-weight:600;transition:all 200ms ease;">OK</button></div>
+</div>
+<div id="info-modal" style="display:none; position: fixed; top:50%; left:50%; transform:translate(-50%,-50%); background:#2B2B2B; padding:20px;
+                            border:2px solid #00EEFF; border-radius:10px; color:#fff; z-index:10001; text-align:left; max-width:520px; 
+                            box-shadow: 0 0 20px rgba(0, 238, 255, 0.3), 0 0 40px rgba(0, 0, 0, 0.8);">
+    <h2>About Aim Trainer</h2>
+    <p>This is a simple aim training game to practice clicking accuracy and speed. Choose a game mode and difficulty, then press Start to begin.</p>
+    <h3>Game Modes</h3>
+    <ul>
+        <li><strong>Flick</strong>: Click the Robots as they respawn — target is a fixed number of successful hits.</li>
+        <li><strong>Pulse</strong>: Robots spawn over time; click them before too many appear. If 5 Robots are present at once you lose. Difficulty controls spawn rate.</li>
+        <li><strong>Trio</strong>: Three Robots are present at a time; click a target number of Robots to finish the round.</li>
+    </ul>
+    <h3 style="margin-top:8px">Sounds Used</h3>
+    <ul style="margin-left:18px">
+        <li><a href="https://pixabay.com/sound-effects/hover-button-287656/" style="text-decoration:underline;color:white;">Button hover</a></li>
+        <li><a href="https://pixabay.com/sound-effects/laser-shot-ingame-230500/" style="text-decoration:underline;color:white;">Shot</a></li>
+    </ul>
+    <div style="text-align:right;margin-top:12px"><button id="info-close" style="padding:8px 14px;border-radius:6px;border:2px solid #00EEFF;background:rgba(0, 238, 255, 0.1);color:#00EEFF;cursor:pointer;font-weight:600;transition:all 200ms ease;">Close</button></div>
+</div>
+<p id="time" style="display:none"></p>
+</div>
+<div id="game-area"></div>
+</body>
+</html>
